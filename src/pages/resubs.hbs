@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Re-subscriptions</title>
+        <link rel="stylesheet" type="text/css" href="/global.css">
+        <script src="/global.js"></script>
+        <script src="/resubs.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Re-subscriptions page</h1>
+        <div class="form-container">
+            <div class="form">
+                <label for="userId">User id:</label>
+                <input type="text" id="userId" name="userId" required pattern="\d+">
+
+                <label for="userLogin">User login:</label>
+                <input type="text" id="userLogin" name="userLogin" required pattern="^[a-zA-Z\d]\w{0,24}$">
+
+                <label for="userName">User name:</label>
+                <input type="text" id="userName" name="userName" required>
+
+
+                <label for="channelName">Channel id:</label>
+                <input type="text" id="channelId" name="channelId" required pattern="\d+">
+
+                <label for="channelLogin">Channel login:</label>
+                <input type="text" id="channelLogin" name="channelLogin" required pattern="^[a-zA-Z\d]\w{0,24}$">
+
+                <label for="channelName">Channel name:</label>
+                <input type="text" id="channelName" name="channelName" required>
+
+
+                <label for="tier">Tier:</label>
+                <input type="text" id="tier" name="tier" required>
+
+                <label for="message">Message:</label>
+                <input type="text" id="message" name="message" required>
+
+                <label for="cumulativeMonths">Cumulative months:</label>
+                <input type="text" id="cumulativeMonths" name="cumulativeMonths" required pattern="\d+">
+
+                <label for="streakMonths">Streak months:</label>
+                <input type="text" id="streakMonths" name="streakMonths" required pattern="^(\d+|null)$">
+
+                <label for="durationMonths">Duration months:</label>
+                <input type="text" id="durationMonths" name="durationMonths" required pattern="\d+">
+            </div>
+            <div class="submit-wrapper">
+                <button onclick="handleSubmit()">Submit</button>
+            </div>
+        </div>
+    </body>
+</html>

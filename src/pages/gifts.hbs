@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Gifts</title>
+        <link rel="stylesheet" type="text/css" href="/global.css">
+        <script src="/global.js"></script>
+        <script src="/gifts.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Gifts page</h1>
+        <div class="form-container">
+            <div class="form">
+                <label for="userId">User id:</label>
+                <input type="text" id="userId" name="userId" required pattern="\d+">
+
+                <label for="userLogin">User login:</label>
+                <input type="text" id="userLogin" name="userLogin" required pattern="^[a-zA-Z\d]\w{0,24}$">
+
+                <label for="userName">User name:</label>
+                <input type="text" id="userName" name="userName" required>
+
+
+                <label for="channelName">Channel id:</label>
+                <input type="text" id="channelId" name="channelId" required pattern="\d+">
+
+                <label for="channelLogin">Channel login:</label>
+                <input type="text" id="channelLogin" name="channelLogin" required pattern="^[a-zA-Z\d]\w{0,24}$">
+
+                <label for="channelName">Channel name:</label>
+                <input type="text" id="channelName" name="channelName" required>
+
+
+                <label for="tier">Tier:</label>
+                <input type="text" id="tier" name="tier" required>
+
+                <label for="total">Total:</label>
+                <input type="text" id="total" name="total" required>
+
+                <label for="cumulativeTotal">Cumulative total:</label>
+                <input type="text" id="cumulativeTotal" name="cumulativeTotal" pattern="^(\d+|null)$">
+
+                <label for="isAnonymous">Is anonymous:</label>
+                <input type="text" id="isAnonymous" name="isAnonymous" required pattern="^(true|false)$">
+            </div>
+            <div class="submit-wrapper">
+                <button onclick="handleSubmit()">Submit</button>
+            </div>
+        </div>
+    </body>
+</html>
