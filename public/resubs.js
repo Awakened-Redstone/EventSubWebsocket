@@ -18,8 +18,8 @@ function handleSubmit() {
     "payload": {
         "subscription": {
             "id": "${randomUuid()}",
+            "type": "channel.subscription.message",
             "status": "enabled",
-            "type": "channel.subscribe",
             "version": "1",
             "cost": 0,
             "condition": {

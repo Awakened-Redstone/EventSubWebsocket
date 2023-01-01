@@ -19,7 +19,7 @@ function handleSubmit() {
         "message_id": "${randomUuid()}",
         "message_type": "notification",
         "message_timestamp": "${new Date().toISOString()}",
-        "subscription_type": "channel.cheer",
+        "subscription_type": "channel.channel_points_custom_reward_redemption.add",
         "subscription_version": "1"
     },
     "payload": {

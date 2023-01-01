@@ -18,8 +18,8 @@ function handleSubmit() {
     "payload": {
         "subscription": {
             "id": "${randomUuid()}",
+            "type": "channel.subscription.gift",
             "status": "enabled",
-            "type": "channel.subscribe",
             "version": "1",
             "cost": 0,
             "condition": {
@@ -38,11 +38,10 @@ function handleSubmit() {
             "broadcaster_user_id": "${data.channelId}",
             "broadcaster_user_login": "${data.channelLogin}",
             "broadcaster_user_name": "${data.channelName}",
+            "total": ${parseInt(data.total)},
             "tier": "${data.tier}",
-            "total": ${data.total},
-            "cumulative_months": ${parseInt(data.cumulativeMonths)},
-            "cumulative_total": ${data.streakMonths === "null" || parseBoolean(data.isAnonymous) ? "null" : parseInt(data.streakMonths)},
-            "duration_months": ${parseInt(data.durationMonths)}
+            "cumulative_total": ${data.cumulativeTotal === "null" || parseBoolean(data.isAnonymous) ? "null" : parseInt(data.cumulativeTotal)},
+            "is_anonymous": ${parseBoolean(data.isAnonymous)}
         }
     }
 }

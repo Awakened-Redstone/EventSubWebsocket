@@ -6,6 +6,13 @@ function handleSubmit() {
     });
 
     // noinspection JSUnresolvedVariable
+    const messages = ["JumpKing", "Poggers", "Twitch-a-thon", "Stream-a-thon", "Now in 2023", `PetThe${data.channelName}`, randomUuid(), "ありがとうございました。", "覚醒したレッドストーン",
+        "I'm out of message ideas", "Hypers", `twitch.tv/${data.channelLogin}`, "Wonky code", "Don't mind the bugs", "UI 100", "FeedTheMods", "PatTheMods", "Cooled by tea",
+        "Exprosion!!!!!!!!"];
+    // noinspection JSUnresolvedVariable
+    const message = data.randomMessage === "on" ? messages[Math.floor(Math.random() * messages.length)] : data.message;
+
+    // noinspection JSUnresolvedVariable
     const jsonPayload = JSON.parse(`
 {
     "metadata": {
@@ -39,8 +46,8 @@ function handleSubmit() {
             "broadcaster_user_id": "${data.channelId}",
             "broadcaster_user_login": "${data.channelLogin}",
             "broadcaster_user_name": "${data.channelName}",
-            "message": ${data.message},
-            "bits": ${data.total}
+            "message": "${message}",
+            "bits": ${parseInt(data.total)}
         }
     }
 }

@@ -25,6 +25,7 @@ const sessionIntervals = new Map();
 function broadcast(consumer) {
     sessions.forEach(function each(session, client) {
         if (client.readyState === 1) {
+            console.log("broadcasting to " + session)
             consumer(client);
         }
     });
