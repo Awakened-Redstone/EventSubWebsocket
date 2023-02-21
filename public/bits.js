@@ -10,7 +10,7 @@ function handleSubmit() {
         "I'm out of message ideas", "Hypers", `twitch.tv/${data.channelLogin}`, "Wonky code", "Don't mind the bugs", "UI 100", "FeedTheMods", "PatTheMods", "Cooled by tea",
         "Exprosion!!!!!!!!"];
     // noinspection JSUnresolvedVariable
-    const message = data.randomMessage === "on" ? messages[Math.floor(Math.random() * messages.length)] : data.message;
+    const message = data.randomMessage === "on" ? messages[Math.floor(Math.random() * messages.length)] : data.message;2
 
     // noinspection JSUnresolvedVariable
     const jsonPayload = JSON.parse(`

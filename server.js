@@ -227,7 +227,7 @@ fastify.post('/eventsub/subscriptions', (request, reply) => {
 });
 
 fastify.delete('/eventsub/subscriptions', (request, reply) => {
-    request.send();
+    reply.status(204).send();
 });
 
 fastify.listen(
