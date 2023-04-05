@@ -374,7 +374,7 @@ for (const event in events) {
                         },
                         cost: "",
                         created_at: "",
-                        id: "",
+                        id: randomUuid(),
                         status: "",
                         transport: {
                             "method": "websocket",
@@ -383,7 +383,7 @@ for (const event in events) {
                         type: event,
                         version: eventData.version
                     },
-                    event: undefined
+                    event: obj
                 }
             });
         } catch (e) {
