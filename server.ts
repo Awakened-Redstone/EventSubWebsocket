@@ -170,12 +170,11 @@ fastify.register(async function () {
         wsHandler: (connection: SocketStream, req: FastifyRequest) => {
             keepSystemSafe(req)
             connection.socket.on('message', function incoming(message: MessageEvent) {
+                console.log(`${sessions.by("client", connection.socket)?.id}: ${message.toString()}`)
                 if (message.toString() === "list") {
-                    sessions.data.forEach(v => connection.socket.send(v))
+                    sessions.data.forEach(v => connection.socket.send(v.id))
                     return;
                 }
-
-                console.log(`${sessions.by("client", connection.socket)}: ${message.toString()}`)
             });
 
             connection.socket.on('close', () => {
