@@ -1,0 +1,959 @@
+{
+  "channel.update": {
+    "version": 1,
+    "scopes": [],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "title": "string",
+      "language": "string",
+      "category_id": "string",
+      "category_name": "string",
+      "is_mature": "boolean"
+    }
+  },
+  "channel.follow": {
+    "version": 2,
+    "scopes": [
+      "moderator:read:followers"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id",
+        "moderator_user_id"
+      ]
+    },
+    "fields": {
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "followed_at": "string"
+    }
+  },
+  "channel.subscribe": {
+    "version": 1,
+    "scopes": [
+      "channel:read:subscriptions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "tier": "string",
+      "is_gift": "boolean"
+    }
+  },
+  "channel.subscription.end": {
+    "version": 1,
+    "scopes": [
+      "channel:read:subscriptions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "tier": "string",
+      "is_gift": "boolean"
+    }
+  },
+  "channel.subscription.gift": {
+    "version": 1,
+    "scopes": [
+      "channel:read:subscriptions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "total": "integer",
+      "tier": "string",
+      "cumulative_total": "integer",
+      "is_anonymous": "boolean"
+    }
+  },
+  "channel.subscription.message": {
+    "version": 1,
+    "scopes": [
+      "channel:read:subscriptions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "tier": "string",
+      "message": "string",
+      "cumulative_months": "integer",
+      "streak_months": "integer",
+      "duration_months": "integer"
+    }
+  },
+  "channel.cheer": {
+    "version": 1,
+    "scopes": [
+      "bits:read"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "is_anonymous": "boolean",
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "message": "string",
+      "bits": "integer"
+    }
+  },
+  "channel.raid": {
+    "version": 1,
+    "scopes": [],
+    "conditions": {
+      "optional": [
+        "from_broadcaster_user_id",
+        "to_broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "from_broadcaster_user_id": "string",
+      "from_broadcaster_user_login": "string",
+      "from_broadcaster_user_name": "string",
+      "to_broadcaster_user_id": "string",
+      "to_broadcaster_user_login": "string",
+      "to_broadcaster_user_name": "string",
+      "viewers": "integer"
+    }
+  },
+  "channel.ban": {
+    "version": 1,
+    "scopes": [
+      "channel:moderate"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "moderator_user_id": "string",
+      "moderator_user_login": "string",
+      "moderator_user_name": "string",
+      "reason": "string",
+      "banned_at": "string",
+      "ends_at": "string",
+      "is_permanent": "boolean"
+    }
+  },
+  "channel.unban": {
+    "version": 1,
+    "scopes": [
+      "channel:moderate"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "moderator_user_id": "string",
+      "moderator_user_login": "string",
+      "moderator_user_name": "string"
+    }
+  },
+  "channel.moderator.add": {
+    "version": 1,
+    "scopes": [
+      "moderation:read"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string"
+    }
+  },
+  "channel.moderator.remove": {
+    "version": 1,
+    "scopes": [
+      "moderation:read"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string"
+    }
+  },
+  "channel.channel_points_custom_reward.add": {
+    "version": 1,
+    "scopes": [
+      "channel:read:redemptions|channel:manage:redemptions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ],
+      "optional": [
+        "reward_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "is_enabled": "boolean",
+      "is_paused": "boolean",
+      "is_in_stock": "boolean",
+      "title": "string",
+      "cost": "integer",
+      "prompt": "string",
+      "is_user_input_required": "boolean",
+      "should_redemptions_skip_request_queue": "boolean",
+      "max_per_stream": "max_per_stream",
+      "max_per_user_per_stream": "max_per_user_per_stream",
+      "background_color": "string",
+      "image": "image?",
+      "default_image": "image",
+      "global_cooldown": "global_cooldown",
+      "cooldown_expires_at": "string?",
+      "redemptions_redeemed_current_stream": "integer?"
+    }
+  },
+  "channel.channel_points_custom_reward.update": {
+    "version": 1,
+    "scopes": [
+      "channel:read:redemptions|channel:manage:redemptions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ],
+      "optional": [
+        "reward_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "is_enabled": "boolean",
+      "is_paused": "boolean",
+      "is_in_stock": "boolean",
+      "title": "string",
+      "cost": "integer",
+      "prompt": "string",
+      "is_user_input_required": "boolean",
+      "should_redemptions_skip_request_queue": "boolean",
+      "max_per_stream": "max_per_stream",
+      "max_per_user_per_stream": "max_per_user_per_stream",
+      "background_color": "string",
+      "image": "image?",
+      "default_image": "image",
+      "global_cooldown": "global_cooldown",
+      "cooldown_expires_at": "string?",
+      "redemptions_redeemed_current_stream": "integer?"
+    }
+  },
+  "channel.channel_points_custom_reward.remove": {
+    "version": 1,
+    "scopes": [
+      "channel:read:redemptions|channel:manage:redemptions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ],
+      "optional": [
+        "reward_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "is_enabled": "boolean",
+      "is_paused": "boolean",
+      "is_in_stock": "boolean",
+      "title": "string",
+      "cost": "integer",
+      "prompt": "string",
+      "is_user_input_required": "boolean",
+      "should_redemptions_skip_request_queue": "boolean",
+      "max_per_stream": "max_per_stream",
+      "max_per_user_per_stream": "max_per_user_per_stream",
+      "background_color": "string",
+      "image": "image?",
+      "default_image": "image",
+      "global_cooldown": "global_cooldown",
+      "cooldown_expires_at": "string?",
+      "redemptions_redeemed_current_stream": "integer?"
+    }
+  },
+  "channel.channel_points_custom_reward_redemption.add": {
+    "version": 1,
+    "scopes": [
+      "channel:read:redemptions|channel:manage:redemptions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ],
+      "optional": [
+        "reward_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "status": "string",
+      "reward": "reward",
+      "redeemed_at": "string"
+    }
+  },
+  "channel.channel_points_custom_reward_redemption.update": {
+    "version": 1,
+    "scopes": [
+      "channel:read:redemptions|channel:manage:redemptions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ],
+      "optional": [
+        "reward_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "status": "string",
+      "reward": "reward",
+      "redeemed_at": "string"
+    }
+  },
+  "channel.poll.begin": {
+    "version": 1,
+    "scopes": [
+      "channel:read:polls|channel:manage:polls"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "title": "string",
+      "choices": "choices[]",
+      "bits_voting": "bits_voting",
+      "channel_points_voting": "channel_points_voting",
+      "started_at": "string",
+      "ends_at": "string"
+    }
+  },
+  "channel.poll.progress": {
+    "version": 1,
+    "scopes": [
+      "channel:read:polls|channel:manage:polls"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "title": "string",
+      "choices": "choices[]",
+      "bits_voting": "bits_voting",
+      "channel_points_voting": "channel_points_voting",
+      "started_at": "string",
+      "ends_at": "string"
+    }
+  },
+  "channel.poll.end": {
+    "version": 1,
+    "scopes": [
+      "channel:read:polls|channel:manage:polls"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "title": "string",
+      "choices": "choices[]",
+      "bits_voting": "bits_voting",
+      "channel_points_voting": "channel_points_voting",
+      "status": "string",
+      "started_at": "string",
+      "ended_at": "string"
+    }
+  },
+  "channel.prediction.begin": {
+    "version": 1,
+    "scopes": [
+      "channel:read:predictions|channel:manage:predictions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "title": "string",
+      "outcomes": "outcomes[]",
+      "started_at": "string",
+      "locks_at": "string"
+    }
+  },
+  "channel.prediction.progress": {
+    "version": 1,
+    "scopes": [
+      "channel:read:predictions|channel:manage:predictions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "title": "string",
+      "outcomes": "outcomes[]",
+      "started_at": "string",
+      "locks_at": "string"
+    }
+  },
+  "channel.prediction.lock": {
+    "version": 1,
+    "scopes": [
+      "channel:read:predictions|channel:manage:predictions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "title": "string",
+      "outcomes": "outcomes[]",
+      "started_at": "string",
+      "locked_at": "string"
+    }
+  },
+  "channel.prediction.end": {
+    "version": 1,
+    "scopes": [
+      "channel:read:predictions|channel:manage:predictions"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "title": "string",
+      "winning_outcome_id": "string",
+      "outcomes": "outcomes[]",
+      "status": "string",
+      "started_at": "string",
+      "ended_at": "string"
+    }
+  },
+  "channel.charity_campaign.donate": {
+    "version": 1,
+    "scopes": [
+      "channel:read:charity"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "campaign_id": "string",
+      "broadcaster_id": "string",
+      "broadcaster_login": "string",
+      "broadcaster_name": "string",
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "charity_name": "string",
+      "charity_description": "string",
+      "charity_logo": "string",
+      "charity_website": "string",
+      "amount": "money_amount"
+    }
+  },
+  "channel.charity_campaign.start": {
+    "version": 1,
+    "scopes": [
+      "channel:read:charity"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "campaign_id": "string",
+      "broadcaster_id": "string",
+      "broadcaster_login": "string",
+      "broadcaster_name": "string",
+      "user_name": "string",
+      "charity_name": "string",
+      "charity_description": "string",
+      "charity_logo": "string",
+      "charity_website": "string",
+      "current_amount": "money_amount",
+      "target_amount": "money_amount",
+      "started_at": "string"
+    }
+  },
+  "channel.charity_campaign.progress": {
+    "version": 1,
+    "scopes": [
+      "channel:read:charity"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "campaign_id": "string",
+      "broadcaster_id": "string",
+      "broadcaster_login": "string",
+      "broadcaster_name": "string",
+      "user_name": "string",
+      "charity_name": "string",
+      "charity_description": "string",
+      "charity_logo": "string",
+      "charity_website": "string",
+      "current_amount": "money_amount",
+      "target_amount": "money_amount",
+      "started_at": "string"
+    }
+  },
+  "channel.charity_campaign.stop": {
+    "version": 1,
+    "scopes": [
+      "channel:read:charity"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "campaign_id": "string",
+      "broadcaster_id": "string",
+      "broadcaster_login": "string",
+      "broadcaster_name": "string",
+      "user_name": "string",
+      "charity_name": "string",
+      "charity_description": "string",
+      "charity_logo": "string",
+      "charity_website": "string",
+      "current_amount": "money_amount",
+      "target_amount": "money_amount",
+      "started_at": "string"
+    }
+  },
+  "channel.goal.begin": {
+    "version": 1,
+    "scopes": [
+      "channel:read:goals"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_name": "string",
+      "broadcaster_user_login": "string",
+      "type": "string",
+      "description": "string",
+      "current_amount": "string",
+      "target_amount": "integer",
+      "started_at": "string"
+    }
+  },
+  "channel.goal.progress": {
+    "version": 1,
+    "scopes": [
+      "channel:read:goals"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_name": "string",
+      "broadcaster_user_login": "string",
+      "type": "string",
+      "description": "string",
+      "current_amount": "string",
+      "target_amount": "integer",
+      "started_at": "string"
+    }
+  },
+  "channel.goal.end": {
+    "version": 1,
+    "scopes": [
+      "channel:read:goals"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_name": "string",
+      "broadcaster_user_login": "string",
+      "type": "string",
+      "description": "string",
+      "is_achieved": "boolean",
+      "current_amount": "string",
+      "target_amount": "integer",
+      "started_at": "string",
+      "ended_at": "string"
+    }
+  },
+  "channel.hype_train.begin": {
+    "version": 1,
+    "scopes": [
+      "channel:read:hype_train"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_name": "string",
+      "broadcaster_user_login": "string",
+      "total": "integer",
+      "progress": "integer",
+      "goal": "integer",
+      "top_contributions": "top_contributions[]",
+      "last_contribution": "last_contribution",
+      "level": "integer",
+      "started_at": "string",
+      "expires_at": "string"
+    }
+  },
+  "channel.hype_train.progress": {
+    "version": 1,
+    "scopes": [
+      "channel:read:hype_train"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_name": "string",
+      "broadcaster_user_login": "string",
+      "level": "integer",
+      "total": "integer",
+      "progress": "integer",
+      "goal": "integer",
+      "top_contributions": "top_contributions[]",
+      "last_contribution": "last_contribution",
+      "started_at": "string",
+      "expires_at": "string"
+    }
+  },
+  "channel.hype_train.end": {
+    "version": 1,
+    "scopes": [
+      "channel:read:hype_train"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_name": "string",
+      "broadcaster_user_login": "string",
+      "level": "integer",
+      "total": "integer",
+      "top_contributions": "top_contributions[]",
+      "started_at": "string",
+      "expires_at": "string"
+    }
+  },
+  "channel.shield_mode.begin": {
+    "version": 1,
+    "scopes": [
+      "moderator:read:shield_mode|moderator:manage:shield_mode"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id",
+        "moderator_user_id"
+      ]
+    },
+    "fields": {
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "moderator_user_id": "string",
+      "moderator_user_login": "string",
+      "moderator_user_name": "string",
+      "started_at": "string"
+    }
+  },
+  "channel.shield_mode.end": {
+    "version": 1,
+    "scopes": [
+      "moderator:read:shield_mode|moderator:manage:shield_mode"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id",
+        "moderator_user_id"
+      ]
+    },
+    "fields": {
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "moderator_user_id": "string",
+      "moderator_user_login": "string",
+      "moderator_user_name": "string",
+      "ended_at": "string"
+    }
+  },
+  "channel.shoutout.create": {
+    "version": 1,
+    "scopes": [
+      "moderator:read:shoutouts|moderator:manage:shoutouts"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id",
+        "moderator_user_id"
+      ]
+    },
+    "fields": {
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "to_broadcaster_user_id": "string",
+      "to_broadcaster_user_login": "string",
+      "to_broadcaster_user_name": "string",
+      "moderator_user_id": "string",
+      "moderator_user_login": "string",
+      "moderator_user_name": "string",
+      "viewer_count": "integer",
+      "started_at": "string",
+      "cooldown_ends_at": "string",
+      "target_cooldown_ends_at": "string"
+    }
+  },
+  "channel.shoutout.receive": {
+    "version": 1,
+    "scopes": [
+      "moderator:read:shoutouts|moderator:manage:shoutouts"
+    ],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id",
+        "moderator_user_id"
+      ]
+    },
+    "fields": {
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "from_broadcaster_user_id": "string",
+      "from_broadcaster_user_login": "string",
+      "from_broadcaster_user_name": "string",
+      "viewer_count": "integer",
+      "started_at": "string"
+    }
+  },
+  "stream.online": {
+    "version": 1,
+    "scopes": [],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "id": "string",
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string",
+      "type": "string",
+      "started_at": "string"
+    }
+  },
+  "stream.offline": {
+    "version": 1,
+    "scopes": [],
+    "conditions": {
+      "required": [
+        "broadcaster_user_id"
+      ]
+    },
+    "fields": {
+      "broadcaster_user_id": "string",
+      "broadcaster_user_login": "string",
+      "broadcaster_user_name": "string"
+    }
+  },
+  "user.update": {
+    "version": 1,
+    "scopes": [
+      "|user:read:email"
+    ],
+    "conditions": {
+      "required": [
+        "user_id"
+      ]
+    },
+    "fields": {
+      "user_id": "string",
+      "user_login": "string",
+      "user_name": "string",
+      "email": "string",
+      "email_verified": "boolean",
+      "description": "string"
+    }
+  }
+}

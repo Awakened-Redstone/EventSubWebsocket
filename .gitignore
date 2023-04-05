@@ -6,3 +6,13 @@
 .node-gyp
 node_modules
 /.env
+/server.js
+/server-old.js
+.wireit
+/eventsub_types.js
+/register.js
+/event_types.js
+/utils.js
+/public/dist/
+/tsconfig.tsbuildinfo
+/.tsbuildinfo

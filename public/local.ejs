@@ -1,0 +1,9 @@
+<% fields.forEach(function(field) { %>
+    function <%- field.name %>_open() {
+        generatePopup(<%- field.name %>_content(), '<%- field.name %>');
+    }
+
+    function <%- field.name %>_content() {
+        return '<%- field.input %>';
+    }
+<% }); %>

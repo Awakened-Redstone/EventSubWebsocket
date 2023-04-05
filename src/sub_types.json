@@ -1,0 +1,1070 @@
+{
+  "channel.update": {
+    "version": 1,
+    "scopes": [],
+    "conditions": {
+        "required": ["broadcaster_user_id"]
+    },
+    "elements": [
+      "broadcaster_user_id",
+      "broadcaster_user_login",
+      "broadcaster_user_name",
+      "title",
+      "language",
+      "category_id",
+      "category_name",
+      "is_mature"
+    ],
+    "meta:primitives": {
+      "boolean": ["is_mature"],
+      "number": ["category_id"]
+    }
+  },
+  "channel.follow": {
+    "version": 2,
+    "scopes": ["moderator:read:followers"],
+    "conditions": {
+        "required": [
+            "broadcaster_user_id",
+            "moderator_user_id"
+        ]
+    },
+    "elements": [
+      "user_id",
+      "user_login",
+      "user_name",
+      "broadcaster_user_id",
+      "broadcaster_user_login",
+      "broadcaster_user_name",
+      "followed_at"
+    ]
+  },
+  "channel.subscribe": {
+    "version": 1,
+    "scopes": ["channel:read:subscriptions"],
+    "conditions": {
+        "required": [
+            "broadcaster_user_id"
+        ]
+    },
+    "elements": [
+      "user_id",
+      "user_login",
+      "user_name",
+      "broadcaster_user_id",
+      "broadcaster_user_login",
+      "broadcaster_user_name",
+      "tier",
+      "is_gift"
+    ],
+    "meta:primitives": {
+      "boolean": ["is_gift"]
+    }
+  },
+  "channel.subscription.end": {
+    "version": 1,
+    "scopes": ["channel:read:subscriptions"],
+    "conditions": {
+        "required": [
+            "broadcaster_user_id"
+        ]
+    },
+    "elements": [
+      "user_id",
+      "user_login",
+      "user_name",
+      "broadcaster_user_id",
+      "broadcaster_user_login",
+      "broadcaster_user_name",
+      "tier",
+      "is_gift"
+    ],
+    "meta:primitives": {
+      "boolean": ["is_gift"]
+    }
+  },
+  "channel.subscription.gift": {
+    "version": 1,
+    "scopes": ["channel:read:subscriptions"],
+    "conditions": {
+        "required": [
+            "broadcaster_user_id"
+        ]
+    },
+    "elements": [
+      "user_id",
+      "user_login",
+      "user_name",
+      "broadcaster_user_id",
+      "broadcaster_user_login",
+      "broadcaster_user_name",
+      "total",
+      "tier",
+      "cumulative_total",
+      "is_anonymous"
+    ],
+    "meta:primitives": {
+      "integer": ["total", "cumulative_total"],
+      "boolean": ["is_anonymous"]
+    }
+  },
+  "channel.subscription.message": {
+      "version": 1,
+      "scopes": ["channel:read:subscriptions"],
+      "conditions": {
+          "required": [
+              "broadcaster_user_id"
+          ]
+      },
+      "elements": [
+          "user_id",
+          "user_login",
+          "user_name",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "tier",
+          "message",
+          "cumulative_months",
+          "streak_months",
+          "duration_months"
+      ],
+      "meta:primitives": {
+          "integer": ["cumulative_months", "streak_months", "duration_months"]
+      }
+  },
+  "channel.cheer": {
+    "version": 1,
+    "scopes": ["bits:read"],
+    "conditions": {
+        "required": [
+            "broadcaster_user_id"
+        ]
+    },
+    "elements": [
+      "is_anonymous",
+      "user_id",
+      "user_login",
+      "user_name",
+      "broadcaster_user_id",
+      "broadcaster_user_login",
+      "broadcaster_user_name",
+      "message",
+      "bits"
+    ],
+    "meta:primitives": {
+      "boolean": ["is_anonymous"],
+      "integer": ["bits"]
+    }
+  },
+  "channel.raid": {
+      "version": 1,
+      "scopes": [],
+      "conditions": {
+          "optional": ["from_broadcaster_user_id", "to_broadcaster_user_id"]
+      },
+      "elements": [
+          "from_broadcaster_user_id",
+          "from_broadcaster_user_login",
+          "from_broadcaster_user_name",
+          "to_broadcaster_user_id",
+          "to_broadcaster_user_login",
+          "to_broadcaster_user_name",
+          "viewers"
+      ],
+      "meta:primitives": {
+          "boolean": ["viewers"]
+      }
+  },
+  "channel.ban": {
+      "version": 1,
+      "scopes": ["channel:moderate"],
+      "conditions": {
+          "required": [
+              "broadcaster_user_id"
+          ]
+      },
+      "elements": [
+          "user_id",
+          "user_login",
+          "user_name",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "moderator_user_id",
+          "moderator_user_login",
+          "moderator_user_name",
+          "reason",
+          "banned_at",
+          "ends_at",
+          "is_permanent"
+      ],
+      "meta:primitives": {
+          "boolean": ["is_permanent"]
+      }
+  },
+  "channel.unban": {
+      "version": 1,
+      "scopes": ["channel:moderate"],
+      "conditions": {
+          "required": [
+              "broadcaster_user_id"
+          ]
+      },
+      "elements": [
+          "user_id",
+          "user_login",
+          "user_name",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "moderator_user_id",
+          "moderator_user_login",
+          "moderator_user_name"
+      ]
+  },
+  "channel.moderator.add": {
+      "version": 1,
+      "scopes": ["moderation:read"],
+      "conditions": {
+          "required": [
+              "broadcaster_user_id"
+          ]
+      },
+      "elements": [
+          "user_id",
+          "user_login",
+          "user_name",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name"
+      ]
+  },
+  "channel.moderator.remove": {
+      "version": 1,
+      "scopes": ["moderation:read"],
+      "conditions": {
+          "required": [
+              "broadcaster_user_id"
+          ]
+      },
+      "elements": [
+          "user_id",
+          "user_login",
+          "user_name",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name"
+      ]
+  },
+  "channel.channel_points_custom_reward.add": {
+      "version": 1,
+      "scopes": ["channel:read:redemptions|channel:manage:redemptions"],
+      "conditions": {
+          "required": [
+              "broadcaster_user_id"
+          ],
+          "optional": [
+              "reward_id"
+          ]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "is_enabled",
+          "is_paused",
+          "is_in_stock",
+          "title",
+          "cost",
+          "prompt",
+          "is_user_input_required",
+          "should_redemptions_skip_request_queue",
+          "max_per_stream",
+          "max_per_user_per_stream",
+          "background_color",
+          "image",
+          "default_image",
+          "global_cooldown",
+          "cooldown_expires_at",
+          "redemptions_redeemed_current_stream"
+      ],
+      "meta:nullable": ["image", "cooldown_expires_at", "redemptions_redeemed_current_stream"],
+      "meta:primitives": {
+          "boolean": [
+              "is_enabled",
+              "is_paused",
+              "is_in_stock",
+              "is_user_input_required",
+              "should_redemptions_skip_request_queue"
+          ],
+          "integer": [
+              "cost",
+              "redemptions_redeemed_current_stream"
+          ]
+      },
+      "meta:twitch_type": {
+          "max_per_stream": ["max_per_stream"],
+          "max_per_user_per_stream": ["max_per_user_per_stream"],
+          "global_cooldown": ["global_cooldown"],
+          "image": ["image", "default_image"]
+      }
+  },
+  "channel.channel_points_custom_reward.update": {
+      "version": 1,
+      "scopes": ["channel:read:redemptions|channel:manage:redemptions"],
+      "conditions": {
+          "required": [
+              "broadcaster_user_id"
+          ],
+          "optional": [
+              "reward_id"
+          ]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "is_enabled",
+          "is_paused",
+          "is_in_stock",
+          "title",
+          "cost",
+          "prompt",
+          "is_user_input_required",
+          "should_redemptions_skip_request_queue",
+          "max_per_stream",
+          "max_per_user_per_stream",
+          "background_color",
+          "image",
+          "default_image",
+          "global_cooldown",
+          "cooldown_expires_at",
+          "redemptions_redeemed_current_stream"
+      ],
+      "meta:nullable": ["image", "cooldown_expires_at", "redemptions_redeemed_current_stream"],
+      "meta:primitives": {
+          "boolean": [
+              "is_enabled",
+              "is_paused",
+              "is_in_stock",
+              "is_user_input_required",
+              "should_redemptions_skip_request_queue"
+          ],
+          "integer": [
+              "cost",
+              "redemptions_redeemed_current_stream"
+          ]
+      },
+      "meta:twitch_type": {
+          "max_per_stream": ["max_per_stream"],
+          "max_per_user_per_stream": ["max_per_user_per_stream"],
+          "global_cooldown": ["global_cooldown"],
+          "image": ["image", "default_image"]
+      }
+  },
+  "channel.channel_points_custom_reward.remove": {
+      "version": 1,
+      "scopes": ["channel:read:redemptions|channel:manage:redemptions"],
+      "conditions": {
+          "required": [
+              "broadcaster_user_id"
+          ],
+          "optional": [
+              "reward_id"
+          ]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "is_enabled",
+          "is_paused",
+          "is_in_stock",
+          "title",
+          "cost",
+          "prompt",
+          "is_user_input_required",
+          "should_redemptions_skip_request_queue",
+          "max_per_stream",
+          "max_per_user_per_stream",
+          "background_color",
+          "image",
+          "default_image",
+          "global_cooldown",
+          "cooldown_expires_at",
+          "redemptions_redeemed_current_stream"
+      ],
+      "meta:nullable": ["image", "cooldown_expires_at", "redemptions_redeemed_current_stream"],
+      "meta:primitives": {
+          "boolean": [
+              "is_enabled",
+              "is_paused",
+              "is_in_stock",
+              "is_user_input_required",
+              "should_redemptions_skip_request_queue"
+          ],
+          "integer": [
+              "cost",
+              "redemptions_redeemed_current_stream"
+          ]
+      },
+      "meta:twitch_type": {
+          "max_per_stream": ["max_per_stream"],
+          "max_per_user_per_stream": ["max_per_user_per_stream"],
+          "global_cooldown": ["global_cooldown"],
+          "image": ["image", "default_image"]
+      }
+  },
+  "channel.channel_points_custom_reward_redemption.add": {
+      "version": 1,
+      "scopes": ["channel:read:redemptions|channel:manage:redemptions"],
+      "conditions": {
+          "required": [
+              "broadcaster_user_id"
+          ],
+          "optional": [
+              "reward_id"
+          ]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "user_id",
+          "user_login",
+          "user_name",
+          "status",
+          "reward",
+          "redeemed_at"
+      ],
+      "meta:twitch_type": {
+          "reward": ["reward"]
+      }
+  },
+  "channel.channel_points_custom_reward_redemption.update": {
+      "version": 1,
+      "scopes": ["channel:read:redemptions|channel:manage:redemptions"],
+      "conditions": {
+          "required": [
+              "broadcaster_user_id"
+          ],
+          "optional": [
+              "reward_id"
+          ]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "user_id",
+          "user_login",
+          "user_name",
+          "status",
+          "reward",
+          "redeemed_at"
+      ],
+      "meta:twitch_type": {
+          "reward": ["reward"]
+      }
+  },
+  "channel.poll.begin": {
+      "version": 1,
+      "scopes": ["channel:read:polls|channel:manage:polls"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "title",
+          "choices",
+          "bits_voting",
+          "channel_points_voting",
+          "started_at",
+          "ends_at"
+      ],
+      "meta:twitch_types": {
+          "choices": ["choices"],
+          "bits_voting": ["bits_voting"],
+          "channel_points_voting": ["channel_points_voting"]
+      },
+      "meta:disabled": ["bits_voting"],
+      "meta:default_value": {
+          "bits_voting": "false"
+      }
+  },
+  "channel.poll.progress": {
+      "version": 1,
+      "scopes": ["channel:read:polls|channel:manage:polls"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "title",
+          "choices",
+          "bits_voting",
+          "channel_points_voting",
+          "started_at",
+          "ends_at"
+      ],
+      "meta:twitch_types": {
+          "choices": ["choices"],
+          "bits_voting": ["bits_voting"],
+          "channel_points_voting": ["channel_points_voting"]
+      },
+      "meta:disabled": ["bits_voting"],
+      "meta:default_value": {
+          "bits_voting": "false"
+      }
+  },
+  "channel.poll.end": {
+      "version": 1,
+      "scopes": ["channel:read:polls|channel:manage:polls"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "title",
+          "choices",
+          "bits_voting",
+          "channel_points_voting",
+          "started_at",
+          "ends_at"
+      ],
+      "meta:twitch_types": {
+          "choices": ["choices"],
+          "bits_voting": ["bits_voting"],
+          "channel_points_voting": ["channel_points_voting"]
+      },
+      "meta:disabled": ["bits_voting"],
+      "meta:default_value": {
+          "bits_voting": "false"
+      }
+  },
+  "channel.prediction.begin": {
+      "version": 1,
+      "scopes": ["channel:read:predictions|channel:manage:predictions"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "title",
+          "outcomes",
+          "started_at",
+          "locks_at"
+      ],
+      "meta:twitch_types": {
+          "outcomes": ["outcomes"]
+      }
+  },
+  "channel.prediction.progress": {
+      "version": 1,
+      "scopes": ["channel:read:predictions|channel:manage:predictions"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "title",
+          "outcomes",
+          "started_at",
+          "locks_at"
+      ],
+      "meta:twitch_types": {
+          "outcomes": ["outcomes"]
+      }
+  },
+  "channel.prediction.lock": {
+      "version": 1,
+      "scopes": ["channel:read:predictions|channel:manage:predictions"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "title",
+          "outcomes",
+          "started_at",
+          "locks_at"
+      ],
+      "meta:twitch_types": {
+          "outcomes": ["outcomes"]
+      }
+  },
+  "channel.prediction.end": {
+      "version": 1,
+      "scopes": ["channel:read:predictions|channel:manage:predictions"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "title",
+          "winning_outcome_id",
+          "outcomes",
+          "status",
+          "started_at",
+          "ended_at"
+      ],
+      "meta:twitch_types": {
+          "outcomes": ["outcomes"]
+      }
+  },
+  "channel.charity_campaign.donate": {
+      "version": 1,
+      "scopes": ["channel:read:charity"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "campaign_id",
+          "broadcaster_id",
+          "broadcaster_login",
+          "broadcaster_name",
+          "user_id",
+          "user_login",
+          "user_name",
+          "charity_name",
+          "charity_description",
+          "charity_logo",
+          "charity_website",
+          "amount"
+      ],
+      "meta:twitch_types": {
+          "money_amount": ["amount"]
+      }
+  },
+  "channel.charity_campaign.start": {
+      "version": 1,
+      "scopes": ["channel:read:charity"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "campaign_id",
+          "broadcaster_id",
+          "broadcaster_login",
+          "broadcaster_name",
+          "user_name",
+          "charity_name",
+          "charity_description",
+          "charity_logo",
+          "charity_website",
+          "current_amount",
+          "target_amount",
+          "started_at"
+      ],
+      "meta:twitch_types": {
+          "money_amount": ["current_amount", "target_amount"]
+      }
+  },
+  "channel.charity_campaign.progress": {
+      "version": 1,
+      "scopes": ["channel:read:charity"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "campaign_id",
+          "broadcaster_id",
+          "broadcaster_login",
+          "broadcaster_name",
+          "user_name",
+          "charity_name",
+          "charity_description",
+          "charity_logo",
+          "charity_website",
+          "current_amount",
+          "target_amount",
+          "started_at"
+      ],
+      "meta:twitch_types": {
+          "money_amount": ["current_amount", "target_amount"]
+      }
+  },
+  "channel.charity_campaign.stop": {
+      "version": 1,
+      "scopes": ["channel:read:charity"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "campaign_id",
+          "broadcaster_id",
+          "broadcaster_login",
+          "broadcaster_name",
+          "user_name",
+          "charity_name",
+          "charity_description",
+          "charity_logo",
+          "charity_website",
+          "current_amount",
+          "target_amount",
+          "started_at"
+      ],
+      "meta:twitch_types": {
+          "money_amount": ["current_amount", "target_amount"]
+      }
+  },
+  "drop.entitlement.grant": {
+      "version": 1,
+      "scopes": [],
+      "conditions": {
+          "required": ["organization_id"],
+          "optional": ["category_id", "campaign_id"]
+      },
+      "elements": [
+          "id",
+          "data"
+      ],
+      "meta:twitch_types": {
+          "drop_data": ["data"]
+      }
+  },
+  "extension.bits_transaction.create": {
+      "version": 1,
+      "scopes": [],
+      "conditions": {
+          "required": ["extension_client_id"]
+      },
+      "elements": [
+          "extension_client_id",
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "user_id",
+          "user_login",
+          "user_name",
+          "product"
+      ],
+      "meta:twitch_types": {
+          "product": ["product"]
+      }
+  },
+  "channel.goal.begin": {
+      "version": 1,
+      "scopes": ["channel:read:goals"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_name",
+          "broadcaster_user_login",
+          "type",
+          "description",
+          "current_amount",
+          "target_amount",
+          "started_at"
+      ],
+      "meta:primitives": {
+          "integer": ["target_amount"]
+      }
+  },
+  "channel.goal.progress": {
+      "version": 1,
+      "scopes": ["channel:read:goals"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_name",
+          "broadcaster_user_login",
+          "type",
+          "description",
+          "current_amount",
+          "target_amount",
+          "started_at"
+      ],
+      "meta:primitives": {
+          "integer": ["target_amount"]
+      }
+  },
+  "channel.goal.end": {
+      "version": 1,
+      "scopes": ["channel:read:goals"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_name",
+          "broadcaster_user_login",
+          "type",
+          "description",
+          "is_achieved",
+          "current_amount",
+          "target_amount",
+          "started_at",
+          "ended_at"
+      ],
+      "meta:primitives": {
+          "boolean": ["is_achieved"],
+          "integer": ["target_amount"]
+      }
+  },
+  "channel.hype_train.begin": {
+      "version": 1,
+      "scopes": ["channel:read:hype_train"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_name",
+          "broadcaster_user_login",
+          "total",
+          "progress",
+          "goal",
+          "top_contributions",
+          "last_contribution",
+          "level",
+          "started_at",
+          "expires_at"
+      ],
+      "meta:primitives": {
+          "integer": ["total", "progress", "goal", "level"]
+      },
+      "meta:twitch_types": {
+          "top_contributions": ["top_contributions"],
+          "last_contribution": ["last_contribution"]
+      }
+  },
+  "channel.hype_train.progress": {
+      "version": 1,
+      "scopes": ["channel:read:hype_train"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_name",
+          "broadcaster_user_login",
+          "level",
+          "total",
+          "progress",
+          "goal",
+          "top_contributions",
+          "last_contribution",
+          "started_at",
+          "expires_at"
+      ],
+      "meta:primitives": {
+          "integer": ["total", "progress", "goal", "level"]
+      },
+      "meta:twitch_types": {
+          "top_contributions": ["top_contributions"],
+          "last_contribution": ["last_contribution"]
+      }
+  },
+  "channel.hype_train.end": {
+      "version": 1,
+      "scopes": ["channel:read:hype_train"],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_name",
+          "broadcaster_user_login",
+          "level",
+          "total",
+          "top_contributions",
+          "started_at",
+          "expires_at"
+      ],
+      "meta:primitives": {
+          "integer": ["total", "level"]
+      },
+      "meta:twitch_types": {
+          "top_contributions": ["top_contributions"]
+      }
+  },
+  "channel.shield_mode.begin": {
+      "version": 1,
+      "scopes": ["moderator:read:shield_mode|moderator:manage:shield_mode"],
+      "conditions": {
+          "required": ["broadcaster_user_id", "moderator_user_id"]
+      },
+      "elements": [
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "moderator_user_id",
+          "moderator_user_login",
+          "moderator_user_name",
+          "started_at"
+      ]
+  },
+  "channel.shield_mode.end": {
+      "version": 1,
+      "scopes": ["moderator:read:shield_mode|moderator:manage:shield_mode"],
+      "conditions": {
+          "required": ["broadcaster_user_id", "moderator_user_id"]
+      },
+      "elements": [
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "moderator_user_id",
+          "moderator_user_login",
+          "moderator_user_name",
+          "ended_at"
+      ]
+  },
+  "channel.shoutout.create": {
+      "version": 1,
+      "scopes": ["moderator:read:shoutouts|moderator:manage:shoutouts"],
+      "conditions": {
+          "required": ["broadcaster_user_id", "moderator_user_id"]
+      },
+      "elements": [
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "to_broadcaster_user_id",
+          "to_broadcaster_user_login",
+          "to_broadcaster_user_name",
+          "moderator_user_id",
+          "moderator_user_login",
+          "moderator_user_name",
+          "viewer_count",
+          "started_at",
+          "cooldown_ends_at",
+          "target_cooldown_ends_at"
+      ],
+      "meta:primitives": {
+          "integer": ["viewer_count"]
+      }
+  },
+  "channel.shoutout.receive": {
+      "version": 1,
+      "scopes": ["moderator:read:shoutouts|moderator:manage:shoutouts"],
+      "conditions": {
+          "required": ["broadcaster_user_id", "moderator_user_id"]
+      },
+      "elements": [
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "from_broadcaster_user_id",
+          "from_broadcaster_user_login",
+          "from_broadcaster_user_name",
+          "viewer_count",
+          "started_at"
+      ],
+      "meta:primitives": {
+          "integer": ["viewer_count"]
+      }
+  },
+  "stream.online": {
+      "version": 1,
+      "scopes": [],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "id",
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name",
+          "type",
+          "started_at"
+      ]
+  },
+  "stream.offline": {
+      "version": 1,
+      "scopes": [],
+      "conditions": {
+          "required": ["broadcaster_user_id"]
+      },
+      "elements": [
+          "broadcaster_user_id",
+          "broadcaster_user_login",
+          "broadcaster_user_name"
+      ]
+  },
+  "user.authorization.grant": {
+      "version": 1,
+      "scopes": [],
+      "conditions": {
+          "required": ["client_id"]
+      },
+      "elements": [
+          "client_id",
+          "user_id",
+          "user_login",
+          "user_name"
+      ]
+  },
+  "user.authorization.revoke": {
+      "version": 1,
+      "scopes": [],
+      "conditions": {
+          "required": ["client_id"]
+      },
+      "elements": [
+          "client_id",
+          "user_id",
+          "user_login",
+          "user_name"
+      ],
+      "meta:nullable": ["user_login", "user_name"]
+  },
+  "user.update": {
+      "version": 1,
+      "scopes": ["|user:read:email"],
+      "conditions": {
+          "required": ["user_id"]
+      },
+      "elements": [
+          "user_id",
+          "user_login",
+          "user_name",
+          "email",
+          "email_verified",
+          "description"
+      ],
+      "meta:primitives": {
+          "boolean": ["email_verified"]
+      }
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTarget -->
+<html class="dark" lang="en">
+  <head>
+    <title>{{type_name}}</title>
+    <link rel="stylesheet" type="text/css" href="/global.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="/global.js"></script>
+    <script src="/events.js"></script>
+    <script src="/local.js"></script>
+    <link href="https://cdn-raw.modrinth.com/fonts/inter/inter.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script>
+      const data = {{stringify elements}};
+      const elements = [
+        {{#elements}}
+          "{{id}}",
+        {{/elements}}
+      ]
+    </script>
+  </head>
+  <body class="no-scroll">
+    <div id="page_loading">
+      <div class="loading">
+        <div class="loadingCircle"></div>
+      </div>
+    </div>
+    <a style="width: auto; position: absolute; top: 0;" href="/" class="looks-like-a-button"><span><i
+        class="fa-solid fa-house"></i> Home</span></a>
+    <h1>{{type_name}}</h1>
+    <button class="broadcaster_id_helper" id="broadcaster_id_helper" type="button" onclick="userIdHelper()">
+      <i class="fa-solid fa-code"></i>
+      Get user info
+    </button>
+    <div id="content">
+      <form class="form-container" method="post" id="form">
+        <div class="form-wrapper">
+          {{#elements}}
+            <div class="form-group" id="{{id}}-group">
+              {{{content}}}
+              <div id="{{id}}-error" class="error-message"></div>
+            </div>
+          {{/elements}}
+        </div>
+        <div class="submit-wrapper">
+          <button id="submit"><i class="fa-brands fa-twitch"></i> Create event</button>
+          <div id="submit-error" class="error-message"></div>
+        </div>
+      </form>
+    </div>
+    <div class="popout-wrapper hidden" id="popout-wrapper">
+    </div>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+<input type="hidden" id="{{id}}" name="{{id}}" alias="{{alias}}" fieldName="{{fieldName}}"
+  {{#if disabled}}disabled readonly{{/if}}{{#if value}}value="{{value}}"{{/if}}>
+<button id="{{id}}-edit" type="button" {{#if disabled}}disabled readonly{{/if}} onclick="{{id}}_open()">
+  <i class="fa-solid fa-pencil"></i>
+  Edit element
+</button>

@@ -1,0 +1,61 @@
+{
+    "meta:children": {
+        "choices": {
+            "id": "string",
+            "title": "string",
+            "bits_votes": "integer",
+            "channel_points_votes": "integer",
+            "votes": "integer"
+        },
+        "outcomes": {
+            "id": "string",
+            "title": "string",
+            "color": "string",
+            "channel_points": "integer",
+            "top_predictors": "top_predictors"
+        },
+        "money_amount":  {
+            "value": "integer",
+            "decimal_places": "integer",
+            "currency": "string"
+        },
+        "drop_data": {
+            "organization_id": "string",
+            "category_id": "string",
+            "category_name": "string",
+            "campaign_id": "string",
+            "user_id": "string",
+            "user_name": "string",
+            "user_login": "string",
+            "entitlement_id": "string",
+            "benefit_id": "string",
+            "created_at": "string"
+        },
+        "product":  {
+            "name": "string",
+            "bits": "integer",
+            "sku": "string",
+            "in_development": "boolean"
+        },
+        "top_contributions": {
+            "user_id": "string",
+            "user_login": "string",
+            "user_name": "string",
+            "channel_points_won": "integer?",
+            "channel_points_used": "integer"
+        },
+        "last_contribution":  {
+            "user_id": "string",
+            "user_login": "string",
+            "user_name": "string",
+            "type": "string",
+            "total": "integer"
+        },
+        "reward": {
+            "id": "string",
+            "title": "string",
+            "cost": "integer",
+            "prompt": "string"
+        }
+    }
+}

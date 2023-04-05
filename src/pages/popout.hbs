@@ -1,0 +1,14 @@
+<button class="close-popup small-button" id="close-popup"
+        style="background-color: var(--color-background-base); z-index: 1000000;">
+  <i class="fa-solid fa-xmark"></i>
+</button>
+<form class="form-container" method="post" id="popup-{{id}}">
+  {{#elements}}
+    <div class="form-group" id="{{id}}-group">
+      {{{content}}}
+      <div id="{{id}}-error" class="error-message"></div>
+    </div>
+  {{/elements}}
+  <button id="{{id}}-submit">Submit</button>
+  <div id="{{id}}-submit-error" class="error-message"></div>
+</form>
